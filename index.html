@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Chart Date Project 3</title>
+    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script>
+(function($)
+{
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'How Theft Stacks up ',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'During SXSW 2015',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Mar 13', 'Mar 14', 'Mar 15', 'Mar 16', 'Mar 17', 'Mar 18',
+                'Mar 19', 'Mar 20', 'Mar 21', 'Mar 22']
+        },
+        yAxis: {
+            title: {
+                text: '# of Incidents Reported'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' incidents '
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Auto Theft',
+            data: [14, 8, 10, 6, 7, 7, 14, 6 , 8, 8]
+        }, {
+            name: 'Shoplifting',
+            data: [8, 6, 10, 5, 7, 2, 10, 13, 14, 9]
+        }, {
+            name: 'Uncategorized Thefts',
+            data: [42, 33, 29, 35, 42, 37, 35, 44, 30, 20]
+        }, {
+            name: 'Bicycle Theft',
+            data: [5, 10, 8, 4, 6, 5, 4, 4, 3, 10]
+        }]
+    });
+});
+})(jQuery);
+
+</script>
+<!--Chart.js -->
+<script src="Chart/Chart.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Veronica Ramirez</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://theveronicaramirez.com/">Home</a>
+                    </li>
+                    <li>
+                        <a href="http://theveronicaramirez.com/photography.html">Photography</a>
+                    </li>
+                    <li>
+                       <a href="https://twitter.com/Bella8121" target="_blank"> Twitter</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/SXSW.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Dude!</h1>
+                        <h2>Where's my car!?</h2>
+                        <hr class="small">
+                        <span class="subheading">Does the crime in Austin go up during SXSW?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+            
+                        <h2 class="post-title">
+                            Chart.js
+                        </h2>
+                        <div style="width:60%">
+			<div>
+				<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+		</div>
+<p>This data comes from the Austin Police Incident report. In the data there was TONS of crime reports. However, what I wanted to research was if the crime goes up during SXSW and what is the most common crime. With this chart, I broke the data down by the days of SXSW 2015 which were March 13-22. As you can see the x-axis contains the days and each wave or line represents a different crime with the specific amount for that day of a certain crime. I like this chart, however I don't like that there isn't really any legends and you don't know which crime is which. At the bottom I used highcharts, which I think I like much better.   </p>
+
+	<script>
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var lineChartData = {
+			labels : ["Mar 13","Mar 14","Mar 15","Mar 16","Mar 17","Mar 18","Mar 19", "Mar 20", "Mar 21", "Mar 22"],
+			datasets : [
+				{
+					label: "Auto Theft",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : [14, 8, 10, 6, 7, 7, 14, 6, 8,8 ]
+				},
+				{
+					label: "Shop Lifting",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [8, 6, 10, 5, 7, 2, 10, 13, 14, 9]
+				},
+				{
+					label: "Uncategorized Thefts",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [42, 33, 29, 35, 42, 37, 35, 44, 30, 20]
+				},
+				{
+					label: "Bicycle Theft",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [5, 10, 8, 4, 6, 5, 4, 4, 3, 10]
+				}
+				
+			]
+
+		}
+
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive: true
+		});
+	}
+
+
+	</script>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    
+                        <h2 class="post-title">
+                            Google Charts.
+                        </h2>
+                 <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1An1ZDTpJQVbbiUMeMKCyLJ3EaFLS0EiGHZDDbnrW6hQ/pubchart?oid=764475900&amp;format=interactive"></iframe>
+                    <p>Here I used the Google Charts to show what the most common crimes were again, during SXSW. As you can tell by the pie graph, Thefts are the most common, with assaults not too far behind. </p>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    
+                        <h2 class="post-title">
+                            Google Fusion Tables.
+                        </h2>
+                    
+                    <iframe width="800" height="500" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?containerId=googft-gviz-canvas&amp;q=select+col0%2C+col1%2C+col2%2C+col3%2C+col4%2C+col5%2C+col6%2C+col7%2C+col8%2C+col9%2C+col10%2C+col11+from+1tW8Rx6159OKrEd_ehLs39SwqkXYS4E5kMG29CLXD+order+by+col0+asc+limit+12&amp;viz=GVIZ&amp;t=BAR&amp;uiversion=2&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;width=800&amp;height=500"></iframe>
+                    <p>After seeing the google chart and gathering that theft was the most common crime, I wanted to see if theft was highest in March because of SXSW or was this the lowest in comparison to other months. According to the data the I collected, March was not the highest month for theft, which I thought it would be because of the excess tourism around SXSW. The chart shows that July has the highest amount of thefts followed by August, then March. I'd really like to see what is happening if anything within those months to see if maybe there is some reason why the thefts are so high. Maybe compare it to other years.</p>
+                </div>
+                <hr>
+                <div class="post-preview">
+                    
+                        <h2 class="post-title">
+                            Highcharts
+                        </h2>
+                
+<div id="container" align ='left' style="width: 800px; height: 400px; margin: 0 auto"></div>
+
+<p>Here I almost used the same Data except I just used the most common theft crimes. Each one of these falls into the theft category. The one that is the highest I labeled as "uncategorized" because in the dataset, there was no specific information on what kind of theft was reported. I'd really like to inquire more and find out what exactly these were. I think they would or could possibly change the data more.  I really liked this table, I think it is easier to read and looks better visually. It's tricky to get set up though, but I think it adds a more professional look.</p>
+                    
+                </div>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://www.twitter.com/bella8121" target="_blank" >
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/bella8121" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/bella8121" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Veronica Ramirez 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
